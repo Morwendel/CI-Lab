@@ -12,14 +12,15 @@ jobs:
 
       - name: Run a one-line script
         run: echo "Пацеля Дмитрий Александрович студент группы БО241ИСТ"
+
       - name: Run a multi-line script
         run: |
           echo "Дальневосточный государственный университет путей сообщения"
           echo "Институт транспортных и энергетических систем"
           echo "Цифровая индустрия и защита информации"
-          
+
       - name: Display current date
-        run: echo "Текущая дата: ${{ github.event.head_commit.timestamp }}"
+        run: echo "Текущая дата: $(date)"
 
       - name: Show memory usage
         run: free -h
