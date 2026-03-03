@@ -1,0 +1,28 @@
+name: greeting
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  show-info:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo "Пацеля Дмитрий Александрович студент группы БО241ИСТ"
+      - name: Run a multi-line script
+        run: 
+          echo "Дальневосточный государственный университет путей сообщения";
+          echo "Институт транспортных и энергентических систем";
+          echo "Цифоровая индустрия и защита информации"
+          
+      - name: Display current date
+        run: echo "Текущая дата: $(date)"
+
+      - name: Show memory usage
+        run: free -h
+
+      - name: Show disk usage
+        run: df -h
