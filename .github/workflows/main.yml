@@ -19,7 +19,7 @@ jobs:
           echo "Цифоровая индустрия и защита информации"
           
       - name: Display current date
-        run: echo "Текущая дата: $(date)"
+        run: echo "Текущая дата: ${{ github.event.head_commit.timestamp }}"
 
       - name: Show memory usage
         run: free -h
