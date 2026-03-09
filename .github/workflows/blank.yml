@@ -1,0 +1,20 @@
+name: greeting
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Greeting output
+        run: |
+          echo "Пацеля Дмитрий Александрович студент группы ЦИЗИ"
+          echo "ДВУГПС"
+          echo "ИТЭС"
+          echo "ЦИЗИ"
