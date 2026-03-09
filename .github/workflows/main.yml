@@ -1,26 +1,28 @@
-name: greeting
+name: repo-info
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   show-info:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run a one-line script
-        run: echo "Пацеля Дмитрий Александрович студент группы БО241ИСТ"
+      - name: Show repository, user, date, memory and disk
+        run: |
+          echo "===== REPOSITORY INFO ====="
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Pushed by: $GITHUB_ACTOR"
 
-      - name: Run a multi-line script
-        run: echo "Дальневосточный государственный университет путей сообщения"; echo "Институт транспортных и энергетических систем"; echo "Цифровая индустрия и защита информации"
+          echo "===== CURRENT DATE ====="
+          date
 
-      - name: Display current date
-        run: echo "Текущая дата: $(date)"
+          echo "===== MEMORY USAGE ====="
+          free -h
 
-      - name: Show memory usage
-        run: free -h
-
-      - name: Show disk usage
-        run: df -h
+          echo "===== DISK USAGE ====="
+          df -h
